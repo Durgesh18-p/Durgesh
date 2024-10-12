@@ -1,12 +1,11 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { SiReact } from "react-icons/si"; // Import React icon
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import work from "../utils/work";
 import grid from "../assets/grid.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-const Work = () => {
+const WorkComponent = () => {
   // Set up Framer Motion animation controls
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -30,39 +29,13 @@ const Work = () => {
     }, // Final state
   };
 
-  // Custom cursor state for React icon
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // Update mouse position whenever it moves
-  useEffect(() => {
-    const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
-    };
-  }, []);
-
   return (
-    <div className="bg-[#111827] pt-10 relative overflow-hidden">
-      {/* Custom Cursor with React Icon */}
-      <motion.div
-        className=" pointer-events-none fixed top-0 left-0 z-50 hidden sm:block" // Hide on mobile
-        style={{
-          x: mousePosition.x - 25, // Centering the icon
-          y: mousePosition.y - 25,
-        }}
-        transition={{ type: "spring", damping: 20, stiffness: 300 }}
-      >
-        <SiReact className="text-blue-500 text-4xl opacity-70" />
-      </motion.div>
-
+    <div className="bg-[#111827] pt-10">
       <div className="text-center lg:mb-7 mb-5">
         <h1 className="text-4xl font-bold text-white">My Work.</h1>
       </div>
       <div
-        className="px-10 relative flex flex-col items-center justify-center md:p-12"
+        className="px-10 relative flex flex-col items-center justify-center md:p-12 overflow-hidden"
         style={{
           backgroundImage: `url(${grid})`,
           backgroundRepeat: "repeat",
@@ -158,4 +131,4 @@ const Work = () => {
   );
 };
 
-export default Work;
+export default WorkComponent;

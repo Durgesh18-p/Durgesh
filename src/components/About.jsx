@@ -53,7 +53,7 @@ const About = () => {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col md:flex-row items-center justify-center h-screen bg-[#111827] md:p-12 overflow-hidden p-4 text-justify lg:pl-28"
+      className="relative flex flex-col md:flex-row items-center justify-center bg-[#111827] md:p-12 overflow-hidden p-4 lg:pl-28 h-[100h] lg:w-[100%] sm:w-[100vw] md:w-[100vw]"
       style={{
         backgroundImage: `url(${grid})`,
         backgroundRepeat: "repeat",
@@ -63,7 +63,7 @@ const About = () => {
     >
       {/* Custom Cursor */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-50"
+        className="pointer-events-none fixed top-0 left-0 z-50 hidden md:block" // Hide on mobile view
         style={{
           x: mousePosition.x - 25, // Centering the icon
           y: mousePosition.y - 25,
@@ -78,7 +78,7 @@ const About = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"} // Trigger animation when in view
-        className="relative z-10 w-full md:w-1/2 text-white flex flex-col items-center md:items-start text-center md:text-left"
+        className="relative z-10 w-full md:w-1/2 text-white flex flex-col items-center md:items-start text-left md:text-left" // Left-align on mobile, center or left on larger screens
       >
         {/* Heading: About Me */}
         <h1 className="text-3xl md:text-4xl font-bold mb-4">
@@ -94,11 +94,17 @@ const About = () => {
         </h1>
 
         {/* Text Description */}
-        <motion.p variants={letterVariants} className="text-lg md:text-xl mb-2">
+        <motion.p
+          variants={letterVariants}
+          className="text-lg md:text-xl mb-2 text-left" // Left-aligned for mobile view
+        >
           Hi! I'm <span className="text-indigo-600">Durgesh Suryawanshi</span>.
           I am a Frontend Developer.
         </motion.p>
-        <motion.p variants={letterVariants} className="text-lg md:text-xl mb-6">
+        <motion.p
+          variants={letterVariants}
+          className="text-lg md:text-xl mb-6 text-left" // Left-aligned for mobile view
+        >
           I create mesmerizing UIs with my skills.
         </motion.p>
 
@@ -111,7 +117,7 @@ const About = () => {
           <motion.span variants={letterVariants}>l</motion.span>
           <motion.span variants={letterVariants}>s</motion.span>
         </h1>
-        <div className="flex space-x-4 mb-6 justify-center md:justify-start">
+        <div className="flex space-x-4 mb-6 justify-start md:justify-start">
           <motion.div variants={letterVariants} className="text-3xl">
             <SiReact className="text-blue-500" />
           </motion.div>
@@ -147,7 +153,10 @@ const About = () => {
           <motion.span variants={letterVariants}>o</motion.span>
           <motion.span variants={letterVariants}>n</motion.span>
         </h1>
-        <motion.p variants={letterVariants} className="text-lg mb-6">
+        <motion.p
+          variants={letterVariants}
+          className="text-lg mb-6 text-left pl-8 lg:pl-0" // Left-aligned for mobile view
+        >
           MGM's College of CS & IT, Nanded - 2023.
         </motion.p>
 
