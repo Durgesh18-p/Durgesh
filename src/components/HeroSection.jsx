@@ -1,25 +1,9 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
-import reactIcon from "../assets/react.svg";
 import grid from "../assets/grid.png";
 import { FaReact } from "react-icons/fa";
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
     <div
       className="relative bg-[#111827] flex flex-col items-center justify-center h-screen overflow-hidden"
@@ -73,21 +57,6 @@ const HeroSection = () => {
       </motion.div>
 
       {/* React Icon Following the Mouse */}
-      <motion.img
-        src={reactIcon}
-        alt="React Icon"
-        className="absolute w-[10px] sm:w-[12px] md:w-[15px] lg:w-[20px] z-30"
-        style={{
-          top: `${mousePosition.y - 10}px`,
-          left: `${mousePosition.x - 10}px`,
-        }}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{
-          repeat: Infinity,
-          duration: 2,
-          ease: "easeInOut",
-        }}
-      />
     </div>
   );
 };
