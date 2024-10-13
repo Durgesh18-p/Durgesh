@@ -18,7 +18,7 @@ const HeroSection = () => {
         <img
           src={logo}
           alt="logo"
-          className="w-[200px] sm:w-[250px] md:w-[350px]"
+          className="w-[200px] sm:w-[350px] md:w-[350px]"
         />
       </motion.div>
 

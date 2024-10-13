@@ -2,6 +2,7 @@ import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/work" element={<Work />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

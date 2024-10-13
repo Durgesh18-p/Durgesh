@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"; // Import useState to track rotation values
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,7 +10,6 @@ const Contact = () => {
   const form = useRef();
   const isInView = useInView(form, { once: true });
 
-  // State for rotation values
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
@@ -35,20 +34,18 @@ const Contact = () => {
       );
   };
 
-  // Handle mouse move for 3D rotation effect
   const handleMouseMove = (e) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - (left + width / 2); // Calculate the X relative to the center
-    const y = e.clientY - (top + height / 2); // Calculate the Y relative to the center
-    const rotateXValue = (-y / height) * 15; // Scale the Y movement for rotation
-    const rotateYValue = (x / width) * 15; // Scale the X movement for rotation
+    const x = e.clientX - (left + width / 2); 
+    const y = e.clientY - (top + height / 2); 
+    const rotateXValue = (-y / height) * 15; 
+    const rotateYValue = (x / width) * 15; 
 
     setRotateX(rotateXValue);
     setRotateY(rotateYValue);
   };
 
-  // Reset 3D rotation when mouse leaves
   const handleMouseLeave = () => {
     setRotateX(0);
     setRotateY(0);
@@ -64,16 +61,14 @@ const Contact = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Contact Me Heading */}
       <motion.h2
         className="text-4xl font-bold text-center text-white mt-8"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
-        Contact Me
+        Contact Me.
       </motion.h2>
 
-      {/* Description */}
       <motion.p
         className="lg:text-center text-justify text-lg text-gray-300 mt-4 mb-10 px-4 md:px-20 lg:px-64 "
         initial={{ opacity: 0, y: 50 }}
@@ -84,7 +79,6 @@ const Contact = () => {
         to emails within 24 hours. Let's connect!
       </motion.p>
 
-      {/* Main Form Section */}
       <motion.div
         className="flex flex-col md:flex-row justify-center text-white p-6 items-center"
         initial={{ opacity: 0 }}
@@ -96,7 +90,6 @@ const Contact = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Left Section with Animation */}
         <motion.div
           className="md:w-1/2 w-full flex flex-col justify-center items-start p-6 mb-10 md:mb-0"
           initial={{ x: -200, opacity: 0 }}
@@ -121,7 +114,6 @@ const Contact = () => {
             I am always open to new ideas and opportunities.
           </motion.p>
 
-          {/* Unique animation for "I am open to work" */}
           <motion.p
             className="text-xl font-extrabold mb-8 text-[#cbd5e1]"
             initial={{ opacity: 0, y: 50 }}
@@ -133,7 +125,7 @@ const Contact = () => {
               stiffness: 200,
             }}
             whileHover={{
-              scale: 1.1, // Optional hover effect for added interaction
+              scale: 1.1, 
               transition: { duration: 0.3 },
             }}
           >
@@ -141,17 +133,16 @@ const Contact = () => {
           </motion.p>
         </motion.div>
 
-        {/* Form with 3D Hover Animation */}
         <motion.form
           ref={form}
           className="md:w-1/2 w-full max-w-lg bg-gradient-to-r from-black to-gray-800 p-8 rounded-lg shadow-lg relative"
           onSubmit={sendEmail}
-          onMouseMove={handleMouseMove} // Add mouse move handler
-          onMouseLeave={handleMouseLeave} // Add mouse leave handler
+          onMouseMove={handleMouseMove} 
+          onMouseLeave={handleMouseLeave} 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.8 } }}
           style={{
-            transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, // Apply the rotation based on mouse position
+            transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, 
             transition: "transform 0.1s",
           }}
         >

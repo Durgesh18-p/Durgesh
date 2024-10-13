@@ -7,7 +7,9 @@ const Home = () => {
   return (
     <>
       <HeroSection></HeroSection>
-      <About />
+      <div id="about">
+        <About />
+      </div>
       <Work />
       <ContactMe />
     </>

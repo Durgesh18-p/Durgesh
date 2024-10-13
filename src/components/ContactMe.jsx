@@ -46,7 +46,7 @@ const ContactMe = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
-        Contact Me
+        Contact Me.
       </motion.h2>
       <motion.div
         className="flex flex-col md:flex-row justify-center min-h-screen bg-[#111827] text-white p-6"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import pdf from "../assets/Durgesh_Suryawanshi.pdf";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,12 +28,16 @@ const Navigation = () => {
         <div className="hidden md:flex space-x-8">
           <ul className="flex space-x-8">
             <li className="hover:text-gray-400 cursor-pointer">
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">Contact.</Link>
             </li>
             <li className="hover:text-gray-400 cursor-pointer">
-              <Link to="/work">Work</Link>
+              <Link to="/work">Work.</Link>
             </li>
-            <li className="hover:text-gray-400 cursor-pointer">Resume</li>
+            <li className="hover:text-gray-400 cursor-pointer flex items-center">
+              <a href={pdf} target="_blank" rel="noopener noreferrer">
+                Resume.
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -50,26 +55,28 @@ const Navigation = () => {
           initial={{ opacity: 0, x: "-100%" }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "-100%" }}
-          className=" pt-32 fixed inset-0 bg-gray-900 text-white flex flex-col items-center justify-center space-y-6 z-50"
+          className="pt-32 fixed inset-0 bg-gray-900 text-white flex flex-col items-center justify-center space-y-6 z-50"
         >
           <ul className="text-center text-2xl space-y-4">
             <li
               className="hover:text-gray-400 cursor-pointer"
               onClick={toggleMenu}
             >
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">Contact.</Link>
             </li>
             <li
               className="hover:text-gray-400 cursor-pointer"
               onClick={toggleMenu}
             >
-              <Link to="/work">Work</Link>
+              <Link to="/work">Work.</Link>
             </li>
             <li
-              className="hover:text-gray-400 cursor-pointer"
+              className="hover:text-gray-400 cursor-pointer flex items-center"
               onClick={toggleMenu}
             >
-              Resume
+              <a href={pdf} target="_blank" rel="noopener noreferrer">
+                Resume.
+              </a>
             </li>
           </ul>
           <FiX
