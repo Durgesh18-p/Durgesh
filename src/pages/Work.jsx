@@ -44,11 +44,34 @@ const Work = () => {
     };
   }, []);
 
+  // State for rotation values
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  // Handle mouse move for 3D rotation effect
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - (left + width / 2); // Calculate the X relative to the center
+    const y = e.clientY - (top + height / 2); // Calculate the Y relative to the center
+    const rotateXValue = (-y / height) * 15; // Scale the Y movement for rotation
+    const rotateYValue = (x / width) * 15; // Scale the X movement for rotation
+
+    setRotateX(rotateXValue);
+    setRotateY(rotateYValue);
+  };
+
+  // Reset 3D rotation when mouse leaves
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
   return (
     <div className="bg-[#111827] pt-10 relative overflow-hidden">
       {/* Custom Cursor with React Icon */}
       <motion.div
-        className=" pointer-events-none fixed top-0 left-0 z-50 hidden sm:block" // Hide on mobile
+        className="pointer-events-none fixed top-0 left-0 z-50 hidden sm:block" // Hide on mobile
         style={{
           x: mousePosition.x - 25, // Centering the icon
           y: mousePosition.y - 25,
@@ -60,9 +83,14 @@ const Work = () => {
 
       <div className="text-center lg:mb-7 mb-5">
         <h1 className="text-4xl font-bold text-white">My Work.</h1>
+        <p className="text-lg text-gray-300 mt-2">
+          A showcase of my projects where I apply my skills and creativity to
+          build interactive and engaging web applications.
+        </p>
       </div>
+
       <div
-        className="px-10 relative flex flex-col items-center justify-center md:p-12"
+        className="px-5 md:px-10 relative flex flex-col items-center justify-center md:p-12"
         style={{
           backgroundImage: `url(${grid})`,
           backgroundRepeat: "repeat",
@@ -82,10 +110,19 @@ const Work = () => {
             <motion.div
               key={index}
               className="w-full sm:w-[90%] md:w-1/2 lg:w-1/3 p-4 mx-auto"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+              }} // Add shadow on hover
               transition={{ duration: 0.3 }}
+              onMouseMove={handleMouseMove} // Add mouse move handler
+              onMouseLeave={handleMouseLeave} // Add mouse leave handler
+              style={{
+                transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, // Apply the rotation based on mouse position
+                transition: "transform 0.1s",
+              }}
             >
-              <div className="shadow-md rounded-lg overflow-hidden bg-[#cbd5e1]">
+              <div className="shadow-lg rounded-lg overflow-hidden bg-[#cbd5e1] transform transition duration-300 ease-in-out">
                 {/* Video or Image Section */}
                 {project.video ? (
                   <video
@@ -122,6 +159,9 @@ const Work = () => {
                       <span>{project.description.three}</span>
                     </li>
                   </ul>
+
+                  {/* Additional Text */}
+                  <p className="text-gray-600 mb-4">{project.additionalText}</p>
 
                   {/* Icons for GitHub and Live Link */}
                   <div className="flex items-center justify-between mt-4">
