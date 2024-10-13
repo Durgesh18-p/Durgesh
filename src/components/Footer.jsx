@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Email Section */}
           <div>
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:suryadurgesh18@gmail.com"
               className="flex items-center justify-center text-gray-400 hover:text-white transition duration-300"
             >
               <FaEnvelope className="mr-2 text-xl" />
