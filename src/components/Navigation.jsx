@@ -50,7 +50,7 @@ const Navigation = () => {
           initial={{ opacity: 0, x: "-100%" }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "-100%" }}
-          className="fixed inset-0 bg-gray-900 text-white flex flex-col items-center justify-center space-y-6 z-50"
+          className=" pt-32 fixed inset-0 bg-gray-900 text-white flex flex-col items-center justify-center space-y-6 z-50"
         >
           <ul className="text-center text-2xl space-y-4">
             <li

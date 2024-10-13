@@ -6,7 +6,7 @@ import { FaReact } from "react-icons/fa";
 const HeroSection = () => {
   return (
     <div
-      className="relative bg-[#111827] flex flex-col items-center justify-center h-screen overflow-hidden"
+      className=" relative bg-[#111827] flex flex-col items-center justify-center h-screen overflow-hidden"
       style={{
         backgroundImage: `url(${grid})`,
         backgroundRepeat: "repeat",
