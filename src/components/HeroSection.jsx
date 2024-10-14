@@ -22,7 +22,6 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      {/* Scrolling Text and React Icon */}
       <motion.div
         className="absolute top-1/2 left-0 flex justify-center items-center overflow-hidden whitespace-nowrap z-20 pt-7"
         animate={{ x: ["20%", "-90%"] }}
@@ -41,7 +40,6 @@ const HeroSection = () => {
             |
           </h1>
 
-          {/* Responsive React Icon */}
           <div className="mx-4">
             <FaReact className="text-blue-400 w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[70px] md:h-[70px] lg:w-[130px] lg:h-[130px]" />
           </div>
@@ -56,7 +54,6 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* React Icon Following the Mouse */}
     </div>
   );
 };

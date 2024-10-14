@@ -10,7 +10,6 @@ const ContactMe = () => {
   const formRef = useRef();
   const containerRef = useRef();
 
-  // Hook to detect when the section comes into view
   const isInView = useInView(containerRef, { once: true });
 
   const sendEmail = (e) => {
@@ -43,7 +42,7 @@ const ContactMe = () => {
         backgroundSize: "contain",
         backgroundPosition: "center",
       }}
-      ref={containerRef} // Reference for detecting view
+      ref={containerRef} 
     >
       <motion.h2
         className="text-4xl font-bold text-center text-white"
@@ -127,10 +126,10 @@ const ContactMe = () => {
           whileHover={{
             rotateX: -10,
             rotateY: 10,
-            transition: { duration: 0.5, ease: "easeOut" }, // 3D effect
+            transition: { duration: 0.5, ease: "easeOut" }, 
           }}
           style={{
-            perspective: 1000, // Adds perspective to the 3D hover effect
+            perspective: 1000, 
           }}
         >
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 opacity-50 pointer-events-none"></div>

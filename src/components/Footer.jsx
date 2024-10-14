@@ -3,7 +3,6 @@ import {
   FaGithub,
   FaLinkedin,
   FaWhatsapp,
-  FaTwitter,
   FaEnvelope,
 } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
@@ -17,7 +16,6 @@ const Footer = () => {
           <p className="mb-2">I can make your project more engaging.</p>
           <p className="text-gray-400">Feel free to reach out anytime!</p>
 
-          {/* Email Section */}
           <div>
             <a
               href="mailto:suryadurgesh18@gmail.com"
@@ -59,7 +57,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Media Icons */}
         <div>
           <ul className="flex justify-center space-x-6">
             <li>

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Audio from "./components/Audio";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           </Routes>
         </div>
         <Footer />
+        <Audio />
       </BrowserRouter>
     </div>
   );

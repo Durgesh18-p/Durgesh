@@ -6,11 +6,10 @@ import grid from "../assets/grid.png";
 import { useEffect } from "react";
 
 const WorkComponent = () => {
-  // Set up Framer Motion animation controls
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger animation only once when it comes into view
-    threshold: 0.1, // Trigger when 10% of the section is visible
+    triggerOnce: true, 
+    threshold: 0.1, 
   });
 
   useEffect(() => {
@@ -19,14 +18,13 @@ const WorkComponent = () => {
     }
   }, [controls, inView]);
 
-  // Define animation variants for Framer Motion
   const variants = {
-    hidden: { opacity: 0, y: 50 }, // Starting state
+    hidden: { opacity: 0, y: 50 }, 
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.7, ease: "easeOut" },
-    }, // Final state
+    }, 
   };
 
   return (
@@ -43,9 +41,8 @@ const WorkComponent = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Responsive horizontal layout */}
         <motion.div
-          ref={ref} // Reference for in-view animation
+          ref={ref} 
           className="flex flex-wrap justify-center"
           initial="hidden"
           animate={controls}
@@ -59,7 +56,7 @@ const WorkComponent = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="shadow-md rounded-lg overflow-hidden bg-[#cbd5e1]">
-                {/* Video or Image Section */}
+              
                 {project.video ? (
                   <video
                     className="w-full h-56 object-cover"
@@ -76,7 +73,6 @@ const WorkComponent = () => {
                   />
                 )}
 
-                {/* Project Description */}
                 <div className="p-6 text-justify">
                   <h2 className="text-2xl font-semibold mb-4 text-[#0f172a]">
                     {project.title}
@@ -96,7 +92,6 @@ const WorkComponent = () => {
                     </li>
                   </ul>
 
-                  {/* Icons for GitHub and Live Link */}
                   <div className="flex items-center justify-between mt-4">
                     <a
                       href={project.github}
