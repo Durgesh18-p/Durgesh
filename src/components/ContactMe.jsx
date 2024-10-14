@@ -7,8 +7,11 @@ import { FaUser, FaEnvelope, FaPenFancy } from "react-icons/fa";
 import grid from "../assets/grid.png";
 
 const ContactMe = () => {
-  const form = useRef();
-  const isInView = useInView(form, { once: true });
+  const formRef = useRef();
+  const containerRef = useRef();
+
+  // Hook to detect when the section comes into view
+  const isInView = useInView(containerRef, { once: true });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -17,13 +20,13 @@ const ContactMe = () => {
       .sendForm(
         "service_w45ev31",
         "template_iu2cj1o",
-        form.current,
+        formRef.current,
         "o8wKtuOX2e3fQJ4-6"
       )
       .then(
         () => {
           toast.success("Thanks for contacting Durgesh!");
-          form.current.reset();
+          formRef.current.reset();
         },
         (error) => {
           toast.error("Failed to send message. Please try again.");
@@ -40,14 +43,18 @@ const ContactMe = () => {
         backgroundSize: "contain",
         backgroundPosition: "center",
       }}
+      ref={containerRef} // Reference for detecting view
     >
       <motion.h2
         className="text-4xl font-bold text-center text-white"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+        animate={
+          isInView ? { opacity: 1, y: 0, transition: { duration: 1 } } : {}
+        }
       >
         Contact Me.
       </motion.h2>
+
       <motion.div
         className="flex flex-col md:flex-row justify-center min-h-screen bg-[#111827] text-white p-6"
         initial={{ opacity: 0 }}
@@ -63,48 +70,68 @@ const ContactMe = () => {
           <motion.h1
             className="text-4xl font-bold mb-4 text-[#4f46e5]"
             initial={{ x: -200, opacity: 0 }}
-            animate={{ x: 0, opacity: 1, transition: { duration: 0.8 } }}
+            animate={
+              isInView
+                ? { x: 0, opacity: 1, transition: { duration: 0.8 } }
+                : {}
+            }
           >
             Let's Talk!
           </motion.h1>
           <motion.p
             className="text-lg mb-8"
             initial={{ x: -200, opacity: 0 }}
-            animate={{
-              x: 0,
-              opacity: 1,
-              transition: { duration: 0.8, delay: 0.2 },
-            }}
+            animate={
+              isInView
+                ? {
+                    x: 0,
+                    opacity: 1,
+                    transition: { duration: 0.8, delay: 0.2 },
+                  }
+                : {}
+            }
           >
             Feel free to reach out and we can collaborate on exciting projects.
           </motion.p>
 
-          {/* Unique animation for "I am open to work" */}
           <motion.p
             className="text-xl font-extrabold mb-8 text-[#cbd5e1]"
             initial={{ opacity: 0, y: 50 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.8, delay: 2 }, // Delay to ensure it animates after everything else
-              type: "spring",
-              stiffness: 200,
-            }}
-            whileHover={{
-              scale: 1.1, // Optional hover effect for added interaction
-              transition: { duration: 0.3 },
-            }}
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.8, delay: 2 },
+                    type: "spring",
+                    stiffness: 200,
+                  }
+                : {}
+            }
+            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
           >
             I am open to work.
           </motion.p>
         </div>
 
         <motion.form
-          ref={form}
+          ref={formRef}
           className="md:w-1/2 w-full max-w-lg bg-gradient-to-r from-black to-gray-800 p-8 rounded-lg shadow-lg relative"
           onSubmit={sendEmail}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.8 } }}
+          animate={
+            isInView
+              ? { opacity: 1, transition: { delay: 0.5, duration: 0.8 } }
+              : {}
+          }
+          whileHover={{
+            rotateX: -10,
+            rotateY: 10,
+            transition: { duration: 0.5, ease: "easeOut" }, // 3D effect
+          }}
+          style={{
+            perspective: 1000, // Adds perspective to the 3D hover effect
+          }}
         >
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 opacity-50 pointer-events-none"></div>
 
@@ -158,8 +185,8 @@ const ContactMe = () => {
         </motion.form>
 
         <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
+          position="bottom-center"
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop
           closeOnClick

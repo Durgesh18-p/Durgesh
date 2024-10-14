@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaEnvelope,
 } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col items-center text-center md:flex-row md:justify-between">
         <div className="mb-5 md:mb-0">
           <h1 className="text-3xl font-bold mb-2">Let&apos;s Connect.</h1>
-          <p className="mb-2">I can help you bring your project to life.</p>
+          <p className="mb-2">I can make your project more engaging.</p>
           <p className="text-gray-400">Feel free to reach out anytime!</p>
 
           {/* Email Section */}
@@ -98,7 +99,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="relative group flex items-center justify-center"
               >
-                <FaTwitter className="text-2xl transition-transform duration-300 transform group-hover:scale-110" />
+                <BsTwitterX className="text-2xl transition-transform duration-300 transform group-hover:scale-110" />
               </a>
             </li>
           </ul>
