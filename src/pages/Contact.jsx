@@ -18,7 +18,7 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_w45ev31",
+        "service_zb8n3yj",
         "template_iu2cj1o",
         form.current,
         "o8wKtuOX2e3fQJ4-6"
@@ -37,10 +37,10 @@ const Contact = () => {
   const handleMouseMove = (e) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - (left + width / 2); 
-    const y = e.clientY - (top + height / 2); 
-    const rotateXValue = (-y / height) * 15; 
-    const rotateYValue = (x / width) * 15; 
+    const x = e.clientX - (left + width / 2);
+    const y = e.clientY - (top + height / 2);
+    const rotateXValue = (-y / height) * 15;
+    const rotateYValue = (x / width) * 15;
 
     setRotateX(rotateXValue);
     setRotateY(rotateYValue);
@@ -125,7 +125,7 @@ const Contact = () => {
               stiffness: 200,
             }}
             whileHover={{
-              scale: 1.1, 
+              scale: 1.1,
               transition: { duration: 0.3 },
             }}
           >
@@ -137,19 +137,19 @@ const Contact = () => {
           ref={form}
           className="md:w-1/2 w-full max-w-lg bg-gradient-to-r from-black to-gray-800 p-8 rounded-lg shadow-lg relative"
           onSubmit={sendEmail}
-          onMouseMove={handleMouseMove} 
-          onMouseLeave={handleMouseLeave} 
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.8 } }}
           style={{
-            transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, 
+            transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
             transition: "transform 0.1s",
           }}
         >
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 opacity-50 pointer-events-none"></div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Name</label>
+            <label className="block text-sm font-semibold mb-2">Name.</label>
             <div className="relative">
               <FaUser className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" />
               <input
@@ -162,7 +162,7 @@ const Contact = () => {
           </div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Email</label>
+            <label className="block text-sm font-semibold mb-2">Email.</label>
             <div className="relative">
               <FaEnvelope className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" />
               <input
@@ -175,7 +175,7 @@ const Contact = () => {
           </div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Message</label>
+            <label className="block text-sm font-semibold mb-2">Message.</label>
             <div className="relative">
               <FaPenFancy className="absolute top-4 left-3 text-gray-400" />
               <textarea

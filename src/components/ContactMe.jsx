@@ -135,7 +135,7 @@ const ContactMe = () => {
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 opacity-50 pointer-events-none"></div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Name</label>
+            <label className="block text-sm font-semibold mb-2">Name.</label>
             <div className="relative">
               <FaUser className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" />
               <input
@@ -148,7 +148,7 @@ const ContactMe = () => {
           </div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Email</label>
+            <label className="block text-sm font-semibold mb-2">Email.</label>
             <div className="relative">
               <FaEnvelope className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" />
               <input
@@ -161,7 +161,7 @@ const ContactMe = () => {
           </div>
 
           <div className="relative mb-6">
-            <label className="block text-sm font-semibold mb-2">Message</label>
+            <label className="block text-sm font-semibold mb-2">Message.</label>
             <div className="relative">
               <FaPenFancy className="absolute top-4 left-3 text-gray-400" />
               <textarea

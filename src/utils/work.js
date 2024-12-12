@@ -5,7 +5,7 @@ import wonder from "../assets/wonder.png";
 
 const work = [
   {
-    title: "wondernews.in",
+    title: "wondernews.in.",
     image: wonder,
     description: {
       one: "Launched a live website with a rapidly growing user base.",
