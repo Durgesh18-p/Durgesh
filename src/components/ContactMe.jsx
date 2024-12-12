@@ -17,7 +17,7 @@ const ContactMe = () => {
 
     emailjs
       .sendForm(
-        "service_w45ev31",
+        "service_zb8n3yj",
         "template_iu2cj1o",
         formRef.current,
         "o8wKtuOX2e3fQJ4-6"
@@ -42,7 +42,7 @@ const ContactMe = () => {
         backgroundSize: "contain",
         backgroundPosition: "center",
       }}
-      ref={containerRef} 
+      ref={containerRef}
     >
       <motion.h2
         className="text-4xl font-bold text-center text-white"
@@ -126,10 +126,10 @@ const ContactMe = () => {
           whileHover={{
             rotateX: -10,
             rotateY: 10,
-            transition: { duration: 0.5, ease: "easeOut" }, 
+            transition: { duration: 0.5, ease: "easeOut" },
           }}
           style={{
-            perspective: 1000, 
+            perspective: 1000,
           }}
         >
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 opacity-50 pointer-events-none"></div>
